@@ -1,11 +1,15 @@
-import Navbar from "./Components/Navbar";
+import React from "react";
+import Header from "./components/header/Header";
+import NavBootstrap from "./components/header/Nav";
+import ItemListContainer from "./components/ItemListContainer";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
     <>
-      <Navbar />
-      <header> "Hola Mundo desde el header"</header>
-      <main> "Hola Mundo desde el main"</main>
+      <Header />
+      <NavBootstrap />
+      <ItemListContainer />
     </>
   );
 }

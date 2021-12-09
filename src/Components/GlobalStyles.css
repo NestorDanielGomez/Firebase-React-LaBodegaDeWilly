@@ -5,10 +5,10 @@
 }
 
 body {
-  background-color: greenyellow;
+  background-color: black;
 }
 
-nav {
+/* nav {
   height: 80px;
   color: red;
   background-color: black;
@@ -20,4 +20,4 @@ nav {
 
 img {
   height: 50px;
-}
+} */
