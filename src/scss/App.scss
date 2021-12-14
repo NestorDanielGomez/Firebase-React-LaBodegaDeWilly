@@ -1,0 +1,19 @@
+@import "colores";
+@import "productosParaVenta";
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --blueOscuro: #023b59;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Cinzel", serif;
+  font-size: 16px;
+  background-color: red;
+}

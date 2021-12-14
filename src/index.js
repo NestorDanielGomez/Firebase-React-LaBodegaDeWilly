@@ -5,7 +5,7 @@ import ReactDOM from "react-dom";
 //3- necesitamos una aplicacion en react
 
 import App from "./App";
-import "./components/GlobalStyles.css";
+
 //4- necesitamos dibujar la aplicacion en el dom
 ReactDOM.render(<App />, document.getElementById("root"));
 //
