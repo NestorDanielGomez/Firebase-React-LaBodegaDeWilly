@@ -1,33 +1,41 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { ListadoProductos } from "../data/ListadoDeProductos";
-import ItemCount from "../components/ItemCount";
+import productos from "../data/productos.json";
+
 import "./ItemListContainer.css";
+import ItemList from "./ItemList";
+
+const traigoDataDeJson = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(productos);
+    }, 3000);
+  });
+};
 
 const ItemListContainer = ({ saludo }) => {
-  const onAdd = () => {
-    alert("onadd");
-  };
+  const [productos, setProductos] = useState([]);
 
+  useEffect(() => {
+    traigoDataDeJson().then((data) => {
+      setProductos(data);
+    });
+  }, []);
   return (
-    <Container className="listadeproductos">
-      <h3 className="text-black-50">{saludo}</h3>
-      <Row>
-        {ListadoProductos.map((item, index) => {
-          return (
-            <Col xs={2}>
-              <div className="card">
-                <img src={item.img} alt={item.marca} />
-                <p>{item.name}</p>
-                <p>{item.varietal}</p>
-                <p>{item.precio}</p>
-              </div>
-            </Col>
-          );
-        })}
-      </Row>
-      <ItemCount stock={5} initial={1} onAdd={onAdd} />;
-    </Container>
+    <>
+      {productos.length === 0 ? (
+        <h1>Cargando Productos</h1>
+      ) : (
+        <Container className="listadeproductos">
+          <h3 className="text-black-50">
+            Tenemos:{productos.length} productos
+          </h3>
+          <Row>
+            <ItemList productos={productos} />
+          </Row>
+        </Container>
+      )}
+    </>
   );
 };
 
