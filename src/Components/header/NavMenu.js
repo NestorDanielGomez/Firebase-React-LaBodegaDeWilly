@@ -21,10 +21,10 @@ const NavMenu = ({ links }) => {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto p-4">
+          <Nav className="me-auto">
             {links.map((link, indice) => {
               return (
-                <NavLink key={link.id} to={link.href} className="p-2">
+                <NavLink key={link.id} to={link.href}>
                   {link.name}
                 </NavLink>
               );
