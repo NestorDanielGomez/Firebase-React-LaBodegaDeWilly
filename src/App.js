@@ -1,19 +1,35 @@
 import React from "react";
 import Header from "./components/header/Header";
-import NavBootstrap from "./components/header/Nav";
+import NavMenu from "./components/header/NavMenu";
 import ItemListContainer from "./components/ItemListContainer";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./scss/App.scss";
 import ItemDetailContainer from "./components/ItemDetailContainer";
+import Cart from "../src/pages/Cart";
+import Home from "../src/pages/Home";
+import Products from "../src/pages/Products";
+import { links } from "./data/LinksNav";
 
 function App() {
   return (
     <BrowserRouter>
       <Header />
-      <NavBootstrap />
-      <ItemListContainer saludo="Bienvenido Nestor" />
-      <ItemDetailContainer />
+      <NavMenu links={links} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route
+          path="/productos"
+          element={<ItemListContainer saludo={"Nestor!"} />}
+        />
+
+        <Route
+          path="/categoria/:id"
+          element={<ItemListContainer saludo="Bienvenido Nestorasd" />}
+        />
+        <Route path="/producto/:id" element={<ItemDetailContainer />} />
+        <Route path="/cart" element={<Cart />} />
+      </Routes>
     </BrowserRouter>
   );
 }
