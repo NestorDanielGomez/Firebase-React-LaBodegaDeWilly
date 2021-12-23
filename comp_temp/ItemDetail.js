@@ -4,6 +4,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import "../Components/ItemDetail.css";
 
 const ItemDetail = ({ producto }) => {
+  console.log(producto);
   const onAdd = () => {
     alert("onadd");
   };
@@ -19,6 +20,7 @@ const ItemDetail = ({ producto }) => {
             <h2>{producto.marca}</h2>
             <h2>{producto.tipo}</h2>
             <h2>{producto.varietal}</h2>
+            <h2>{producto.stock}</h2>
             <ItemCount stock={producto.stock} initial={1} onAdd={onAdd} />;
           </Col>
         </Row>

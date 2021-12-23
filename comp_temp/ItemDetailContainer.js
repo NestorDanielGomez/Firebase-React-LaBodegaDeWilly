@@ -18,7 +18,7 @@ const ItemDetailContainer = () => {
 
   useEffect(() => {
     traigoDataDeJson().then((data) => {
-      setProducto(data);
+      setProducto(data[id - 1]);
     });
   }, [id]);
   return (

@@ -8,7 +8,7 @@ import "./scss/App.scss";
 import ItemDetailContainer from "./Components/ItemDetailContainer";
 import Cart from "../src/pages/Cart";
 import Home from "../src/pages/Home";
-import Products from "../src/pages/Products";
+
 import { links } from "./data/LinksNav";
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
 
         <Route
           path="/categoria/:id"
-          element={<ItemListContainer saludo="Bienvenido Nestorasd" />}
+          element={<ItemListContainer saludo="Bienvenido Nestor" />}
         />
         <Route path="/producto/:id" element={<ItemDetailContainer />} />
         <Route path="/cart" element={<Cart />} />
