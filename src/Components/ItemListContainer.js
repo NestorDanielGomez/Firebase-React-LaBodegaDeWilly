@@ -18,16 +18,10 @@ const ItemListContainer = ({ saludo }) => {
   const { id } = useParams();
 
   useEffect(() => {
-    if (id) {
-      traigoDataDeJson().then((data) => {
-        setProductos(data)
-    } else {
-      // console.log(id);
-      traigoDataDeJson().then((data) => {
-        setProductos(data);
-        console.log(data);
-      });
-    }
+    traigoDataDeJson().then((data) => {
+      setProductos(data);
+      console.log(data);
+    });
   }, [id]);
 
   console.log(productos);
