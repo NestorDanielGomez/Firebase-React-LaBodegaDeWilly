@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Container, Row } from "react-bootstrap";
-import productosDb from "../data/productos.json";
-import ItemList from "./ItemList";
-import "./ItemListContainer.css";
+import productosDb from "../../data/productosDb.json";
+import ItemList from "../itemlist/ItemList";
+import "../itemlist/ItemListContainer.css";
 
 const ItemListContainer = ({ saludo }) => {
   const [list, setList] = useState([]);

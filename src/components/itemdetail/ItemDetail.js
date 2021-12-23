@@ -1,7 +1,7 @@
 import React from "react";
-import ItemCount from "./ItemCount";
 import { Container, Row, Col } from "react-bootstrap";
-import "../Components/ItemDetail.css";
+import ItemCount from "../itemcount/ItemCount";
+import "../itemdetail/ItemDetail.css";
 
 const ItemDetail = ({ producto }) => {
   console.log(producto);

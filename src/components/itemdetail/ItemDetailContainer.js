@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import productos from "../data/productos.json";
-import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
+import productosDb from "../../data/productosDb.json";
+import ItemDetail from "../itemdetail/ItemDetail";
 
 const traigoDataDeJson = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve(productos);
+      resolve(productosDb);
     }, 3000);
   });
 };

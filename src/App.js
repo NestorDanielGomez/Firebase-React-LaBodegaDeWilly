@@ -1,13 +1,13 @@
 import React from "react";
-import Header from "./Components/header/Header";
-import NavMenu from "./Components/header/NavMenu";
-import ItemListContainer from "./Components/ItemListContainer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./scss/App.scss";
-import ItemDetailContainer from "./Components/ItemDetailContainer";
+import Header from "./components/navbar/Header";
+import NavMenu from "./components/navbar/NavMenu";
+import ItemListContainer from "./components/itemlist/ItemListContainer";
+import ItemDetailContainer from "./components/itemdetail/ItemDetailContainer";
 import Cart from "../src/pages/Cart";
 import Home from "../src/pages/Home";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./scss/App.scss";
 
 import { links } from "./data/LinksNav";
 
