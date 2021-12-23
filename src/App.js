@@ -7,7 +7,7 @@ import ItemDetailContainer from "./components/itemdetail/ItemDetailContainer";
 import Cart from "../src/pages/Cart";
 import Home from "../src/pages/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./scss/App.scss";
+import "./components/App.css";
 
 import { links } from "./data/LinksNav";
 

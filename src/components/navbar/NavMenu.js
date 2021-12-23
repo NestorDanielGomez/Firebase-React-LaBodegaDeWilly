@@ -2,10 +2,11 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { Container, Navbar, Nav } from "react-bootstrap";
 import CartWidget from "./CartWidget";
+import "./NavMenu.css";
 
 const NavMenu = ({ links }) => {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar expand="lg" className="navbar">
       <Container>
         <Navbar.Brand>
           <NavLink to="/">
@@ -24,7 +25,7 @@ const NavMenu = ({ links }) => {
           <Nav className="me-auto ms-4">
             {links.map((link, indice) => {
               return (
-                <NavLink key={link.id} to={link.href} className="p-4">
+                <NavLink key={link.id} to={link.href} className="p-4 navlink">
                   {link.name}
                 </NavLink>
               );

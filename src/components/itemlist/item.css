@@ -1,0 +1,28 @@
+.cardproduct {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: var(--blueOscuro);
+  width: 165px;
+  height: 450px;
+  background-color: var(--colorprimario);
+  border: 1px solid black;
+  margin: 5px;
+  border-radius: 0;
+  overflow: hidden;
+}
+.imgcard {
+  width: 100%;
+  align-self: center;
+}
+
+.textscard {
+  color: red;
+  background-color: var(--colorprimario);
+  padding-left: 10px;
+}
+
+.agrupo {
+  margin: 0rem;
+}
