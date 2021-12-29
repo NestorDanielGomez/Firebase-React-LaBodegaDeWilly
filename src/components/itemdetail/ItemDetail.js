@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ItemCount from "../itemcount/ItemCount";
 import "../itemdetail/ItemDetail.css";
 
 const ItemDetail = ({ producto }) => {
-  console.log(producto);
-  const onAdd = () => {
-    alert("onadd");
+  let onAdd = (props) => {
+    alert(`Se agrego : ${props} botellas a su carro`);
+    console.log(props);
   };
   return (
     <>
