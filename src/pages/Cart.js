@@ -20,12 +20,16 @@ const Cart = () => {
               <h4>Bebida:{producto.name}</h4>
               <h4>Marca:{producto.marca}</h4>
               <h4>Tipo:{producto.tipo}</h4>
-              <h4>Varietal:producto.varietal}</h4>
+              <h4>Varietal:{producto.varietal}</h4>
               <h4>cantidad:{producto.cantidad}</h4>
               <h4>precio:${producto.precio}</h4>
               <Button
                 onClick={() => {
-                  borrarDelCarrito(producto.id, producto.cantidad);
+                  borrarDelCarrito(
+                    producto.id,
+                    producto.cantidad,
+                    producto.cantidad * producto.precio
+                  );
                 }}
               >
                 Eliminar del carro

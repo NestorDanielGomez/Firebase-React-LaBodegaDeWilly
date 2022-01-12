@@ -29,16 +29,22 @@ const CustomProvider = ({ children }) => {
       setCarrito([...carrito, productoConSuCantidad]);
       setTotalProductos(totalproductos + cantidad);
     }
-    setPrecioTotal(producto.precio * cantidad);
+    setPrecioTotal(preciototal + producto.precio * cantidad);
   };
 
-  const borrarDelCarrito = (idproductoaborrar, cantidadproducto) => {
+  const borrarDelCarrito = (
+    idproductoaborrar,
+    cantidadproducto,
+    preciototalproducto
+  ) => {
     console.log(`id del producto a borrar ${idproductoaborrar}`);
+    console.log(idproductoaborrar, cantidadproducto, preciototalproducto);
     const copycarritofiltrado = carrito.filter(
       (prod) => prod.id !== idproductoaborrar
     );
     setCarrito(copycarritofiltrado);
     setTotalProductos(totalproductos - cantidadproducto);
+    setPrecioTotal(preciototal - preciototalproducto);
   };
 
   const limpiarCarrito = () => {
