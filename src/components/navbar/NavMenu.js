@@ -1,10 +1,12 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useContexto } from "../miContexto";
 import { Container, Navbar, Nav } from "react-bootstrap";
 import CartWidget from "./CartWidget";
 import "./NavMenu.css";
 
 const NavMenu = ({ links }) => {
+  const { totalproductos } = useContexto();
   return (
     <Navbar expand="lg" className="navbar">
       <Container>
@@ -34,6 +36,7 @@ const NavMenu = ({ links }) => {
         </Navbar.Collapse>
         <NavLink to="/Cart">
           <CartWidget />
+          <p className="text-white">{totalproductos}</p>
         </NavLink>
       </Container>
     </Navbar>

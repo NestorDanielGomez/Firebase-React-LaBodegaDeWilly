@@ -15,10 +15,10 @@ const ItemListContainer = ({ saludo }) => {
         if (!id) {
           res(productosDb);
         } else {
-          console.log(productosDb);
+          // console.log(productosDb);
           res(productosDb.filter((producto) => producto.filtro === id));
         }
-      }, 2000);
+      }, 1000);
     });
 
     promesa
@@ -34,8 +34,8 @@ const ItemListContainer = ({ saludo }) => {
     <>
       {list.length === 0 ? (
         <>
-          <h2>Bienvenido {saludo}</h2>
-          <h4>Cargando Productos</h4>s
+          <h2 className="text-white text-center">Bienvenido {saludo}</h2>
+          <h4 className="text-white text-center">Cargando Productos</h4>s
         </>
       ) : (
         <Container className="listadeproductos">

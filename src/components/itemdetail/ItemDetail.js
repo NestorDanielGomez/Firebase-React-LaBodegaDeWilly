@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { useContexto } from "../miContexto";
 import ItemCount from "../itemcount/ItemCount";
 import "../itemdetail/ItemDetail.css";
 
 const ItemDetail = ({ producto }) => {
-  let onAdd = (props) => {
-    alert(`Se agrego : ${props} botellas a su carro`);
-    console.log(props);
+  const { agregarAlCarrito } = useContexto();
+
+  const onAdd = (cantidadProducto) => {
+    // alert(`Se agrego : ${cantidadProducto} botellas a su carro`);
+    // console.log(cantidadProducto);
+    //onAdd trae la cantidad seleccionada en el itemcount
+    // le mando a agregarAlCarrito (el producto seleccionado y la cantidad del mismo)
+    agregarAlCarrito(cantidadProducto, producto);
   };
   return (
     <>
@@ -21,7 +27,9 @@ const ItemDetail = ({ producto }) => {
             <h2>{producto.tipo}</h2>
             <h2>{producto.varietal}</h2>
             <h2>{producto.stock}</h2>
-            <ItemCount stock={producto.stock} initial={1} onAdd={onAdd} />;
+            <div>
+              {<ItemCount stock={producto.stock} initial={1} onAdd={onAdd} />}
+            </div>
           </Col>
         </Row>
       </Container>

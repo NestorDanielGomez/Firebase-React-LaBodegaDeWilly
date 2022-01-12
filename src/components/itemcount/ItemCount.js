@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Container, Row, Button, Card } from "react-bootstrap";
 import "../itemcount/ItemCount.css";
 
@@ -25,36 +26,37 @@ const ItemCount = ({ stock, initial, onAdd }) => {
   };
   if (visible) {
     return (
-      <Container className="bg-white">
-        <Row>
-          <Card style={{ width: "18rem" }}>
-            <Card.Body>
-              <Card.Title>ItemCount</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">
-                Card Subtitle
-              </Card.Subtitle>
-              <Card.Text>
-                <p>Stock: {stock}</p>
-                <p>Botellas a comprar:{contador}</p>
-              </Card.Text>
+      <>
+        <Container className="bg-white">
+          <Row>
+            <Card style={{ width: "18rem" }}>
+              <Card.Body>
+                <Card.Text>
+                  Stock: {stock}
+                  Botellas a comprar:{contador}
+                </Card.Text>
 
-              <Button onClick={sumar} className="m-1 btn btn-primary ">
-                Sumar
-              </Button>
-              <Button onClick={restar} className="m-1 btn btn-danger ">
-                Restar
-              </Button>
-              <Button onClick={resetear} className="m-1 btn btn-success ">
-                Resetear
-              </Button>
-
-              <button onClick={ejecutoOnAdd} className="m-1 btn btn-info ">
-                Agregar al Carro
-              </button>
-            </Card.Body>
-          </Card>
-        </Row>
-      </Container>
+                <Button onClick={sumar} className="m-1 btn btn-primary ">
+                  Sumar
+                </Button>
+                <Button onClick={restar} className="m-1 btn btn-danger ">
+                  Restar
+                </Button>
+                <Button onClick={resetear} className="m-1 btn btn-success ">
+                  Resetear
+                </Button>
+                <Link
+                  to="/Cart"
+                  onClick={ejecutoOnAdd}
+                  className="m-1 btn btn-info "
+                >
+                  Agregar al Carro
+                </Link>
+              </Card.Body>
+            </Card>
+          </Row>
+        </Container>
+      </>
     );
   } else {
     return (

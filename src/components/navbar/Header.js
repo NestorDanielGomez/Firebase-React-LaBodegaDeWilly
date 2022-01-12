@@ -3,7 +3,7 @@ import React from "react";
 const Header = () => {
   return (
     <div>
-      <h1 className="header-js">La bodega de Willy</h1>
+      <h1 className="text-white text-center">La bodega de Willy</h1>
     </div>
   );
 };

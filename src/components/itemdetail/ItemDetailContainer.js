@@ -8,7 +8,7 @@ const traigoDataDeJson = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(productosDb);
-    }, 3000);
+    }, 1000);
   });
 };
 
@@ -24,7 +24,7 @@ const ItemDetailContainer = () => {
   return (
     <>
       {producto.length === 0 ? (
-        <h1>Cargando Su Producto</h1>
+        <h1 className="text-white">Cargando Su Producto</h1>
       ) : (
         <Container>
           <Row>
