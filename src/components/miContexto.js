@@ -15,20 +15,20 @@ const CustomProvider = ({ children }) => {
   const [carrito, setCarrito] = useState([]);
 
   const agregarAlCarrito = (cantidad, producto) => {
-    const id = producto.id;
+    const idAChequear = producto.id;
 
-    if (isInCarrito(id)) {
+    if (isInCarrito(idAChequear)) {
       const copidadcarrito = [...carrito];
       let match = copidadcarrito.find((p) => p.id === producto.id);
       match.cantidad = match.cantidad + cantidad;
+      setCarrito(copidadcarrito);
     } else {
       const productoConSuCantidad = { ...producto };
       productoConSuCantidad.cantidad = cantidad;
-
       //ahora le paso el abjeto a set carrito
       setCarrito([...carrito, productoConSuCantidad]);
-      setTotalProductos(totalproductos + cantidad);
     }
+    setTotalProductos(totalproductos + cantidad);
     setPrecioTotal(preciototal + producto.precio * cantidad);
   };
 

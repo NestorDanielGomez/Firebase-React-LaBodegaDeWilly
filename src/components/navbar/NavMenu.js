@@ -18,7 +18,7 @@ const NavMenu = ({ links }) => {
               width="30"
               height="30"
               className="d-inline-block align-top"
-            />{" "}
+            />
             La bodega de Willy
           </NavLink>
         </Navbar.Brand>
@@ -36,7 +36,11 @@ const NavMenu = ({ links }) => {
         </Navbar.Collapse>
         <NavLink to="/Cart">
           <CartWidget />
-          <p className="text-white">{totalproductos}</p>
+          {totalproductos > 0 ? (
+            <p className="text-white ">{totalproductos}</p>
+          ) : (
+            <p></p>
+          )}
         </NavLink>
       </Container>
     </Navbar>

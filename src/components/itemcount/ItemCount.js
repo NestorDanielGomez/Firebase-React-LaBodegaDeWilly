@@ -46,7 +46,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
                   Resetear
                 </Button>
                 <Link
-                  to="/Cart"
+                  to="/Productos"
                   onClick={ejecutoOnAdd}
                   className="m-1 btn btn-info "
                 >

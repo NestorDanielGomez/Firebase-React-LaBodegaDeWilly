@@ -34,7 +34,6 @@ const ItemListContainer = ({ saludo }) => {
     <>
       {list.length === 0 ? (
         <>
-          <h2 className="text-white text-center">Bienvenido {saludo}</h2>
           <h4 className="text-white text-center">Cargando Productos</h4>s
         </>
       ) : (

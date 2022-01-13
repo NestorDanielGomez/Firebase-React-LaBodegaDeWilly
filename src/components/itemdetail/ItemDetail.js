@@ -8,7 +8,7 @@ const ItemDetail = ({ producto }) => {
   const { agregarAlCarrito } = useContexto();
 
   const onAdd = (cantidadProducto) => {
-    // alert(`Se agrego : ${cantidadProducto} botellas a su carro`);
+    alert(`Producto agregado al carro`);
     // console.log(cantidadProducto);
     //onAdd trae la cantidad seleccionada en el itemcount
     // le mando a agregarAlCarrito (el producto seleccionado y la cantidad del mismo)
