@@ -4,7 +4,7 @@ import { FaCartPlus } from "react-icons/fa";
 const CartWidget = () => {
   return (
     <div>
-      <FaCartPlus />
+      <FaCartPlus className="lead" />
     </div>
   );
 };

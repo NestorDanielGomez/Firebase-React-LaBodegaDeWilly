@@ -1,0 +1,28 @@
+.navbarStyles {
+  height: 50px;
+  background-color: $colorprimario;
+  a {
+    text-decoration: none;
+    color: $colorsecundario;
+  }
+  span {
+    color: $colorblanco;
+    border-bottom: 1px solid $colorblanco;
+  }
+
+  .widgetnumber {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    span {
+      text-decoration: none;
+      background-color: $colorblanco;
+      border-radius: 5px;
+      color: $colorprimario;
+      font-weight: bold;
+      padding: 1px 3px;
+      margin-left: 5px;
+      border-bottom: 0;
+    }
+  }
+}

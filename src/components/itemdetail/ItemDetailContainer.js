@@ -1,26 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import productosDb from "../../data/productosDb.json";
 import ItemDetail from "../itemdetail/ItemDetail";
-
-const traigoDataDeJson = () => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(productosDb);
-    }, 1000);
-  });
-};
+import { db } from "../firebase";
+import { collection, doc, getDoc } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
   const { id } = useParams();
   const [producto, setProducto] = useState([]);
 
   useEffect(() => {
-    traigoDataDeJson().then((data) => {
-      setProducto(data[id - 1]);
-    });
+    const productosCollection = collection(db, "productos");
+    const refDoc = doc(productosCollection, id);
+    getDoc(refDoc)
+      .then((resultado) => {
+        setProducto(resultado.data());
+      })
+      .catch((error) => {});
   }, [id]);
+
   return (
     <>
       {producto.length === 0 ? (

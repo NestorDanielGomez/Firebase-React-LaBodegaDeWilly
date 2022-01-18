@@ -8,42 +8,44 @@ import "./NavMenu.css";
 const NavMenu = ({ links }) => {
   const { totalproductos } = useContexto();
   return (
-    <Navbar expand="lg" className="navbar">
-      <Container>
-        <Navbar.Brand>
-          <NavLink to="/">
+    <>
+      <Navbar expand="lg" className="navbarStyles">
+        <Container>
+          <Navbar.Brand href="#home">
             <img
               alt=""
-              src="./logo192.png"
-              width="30"
-              height="30"
+              src="/assets/images/logowilly.svg"
+              width="40"
+              height="34"
               className="d-inline-block align-top"
             />
-            La bodega de Willy
+            <span>La bodega de Willy</span>
+          </Navbar.Brand>
+        </Container>
+        <Container>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              {links.map((link, indice) => {
+                return (
+                  <NavLink key={link.id} to={link.href} className="p-4 navlink">
+                    {link.name}
+                  </NavLink>
+                );
+              })}
+            </Nav>
+          </Navbar.Collapse>
+          <NavLink to="/Cart" className="widgetnumber">
+            <CartWidget />
+            {totalproductos > 0 ? (
+              <span>{totalproductos}</span>
+            ) : (
+              <span className="d-none"></span>
+            )}
           </NavLink>
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto ms-4">
-            {links.map((link, indice) => {
-              return (
-                <NavLink key={link.id} to={link.href} className="p-4 navlink">
-                  {link.name}
-                </NavLink>
-              );
-            })}
-          </Nav>
-        </Navbar.Collapse>
-        <NavLink to="/Cart">
-          <CartWidget />
-          {totalproductos > 0 ? (
-            <p className="text-white ">{totalproductos}</p>
-          ) : (
-            <p></p>
-          )}
-        </NavLink>
-      </Container>
-    </Navbar>
+        </Container>
+      </Navbar>
+    </>
   );
 };
 

@@ -1,0 +1,37 @@
+@import "colores";
+@import "header";
+@import "navbar";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Cinzel", serif;
+  /* font-family: 'Roboto', sans-serif; */
+  font-size: 16px;
+  background-color: $colornegro;
+}
+
+html {
+  ol,
+  ul {
+    padding-left: 0;
+  }
+  h1,
+  .h1,
+  h2,
+  .h2,
+  h3,
+  .h3,
+  h4,
+  .h4,
+  h5,
+  .h5,
+  h6,
+  .h6 {
+    margin-bottom: 0;
+  }
+}
