@@ -15,6 +15,7 @@ const CustomProvider = ({ children }) => {
   const [carrito, setCarrito] = useState([]);
 
   const agregarAlCarrito = (cantidad, producto) => {
+    console.log(`lo que me llega ${producto}`);
     const idAChequear = producto.id;
 
     if (isInCarrito(idAChequear)) {
@@ -37,8 +38,8 @@ const CustomProvider = ({ children }) => {
     cantidadproducto,
     preciototalproducto
   ) => {
-    console.log(`id del producto a borrar ${idproductoaborrar}`);
-    console.log(idproductoaborrar, cantidadproducto, preciototalproducto);
+    // console.log(`id del producto a borrar ${idproductoaborrar}`);
+    // console.log(idproductoaborrar, cantidadproducto, preciototalproducto);
     const copycarritofiltrado = carrito.filter(
       (prod) => prod.id !== idproductoaborrar
     );

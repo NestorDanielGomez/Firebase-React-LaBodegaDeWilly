@@ -19,7 +19,6 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 
   const ejecutoOnAdd = () => {
     contador ? setVisible(false) : setVisible(true);
-
     contador <= stock && contador > 0
       ? onAdd(contador)
       : alert("Agregue algun producto al carro");

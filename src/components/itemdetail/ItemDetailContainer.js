@@ -13,8 +13,9 @@ const ItemDetailContainer = () => {
     const productosCollection = collection(db, "productos");
     const refDoc = doc(productosCollection, id);
     getDoc(refDoc)
-      .then((resultado) => {
-        setProducto(resultado.data());
+      .then((producto) => {
+        const productoConId = { ...producto.data(), id };
+        setProducto(productoConId);
       })
       .catch((error) => {});
   }, [id]);
