@@ -69,7 +69,7 @@ const Cart = () => {
 
         <Row className="text-center">
           <Col className="m-2">
-            <h3 className="text-dark">Total de la Compra: ${preciototal} </h3>
+            <h3 className="text-dark">Compra Total: ${preciototal} </h3>
             <Link to="/Productos" className="m-1 btn btn-info text-center">
               Seguir Comprando
             </Link>
