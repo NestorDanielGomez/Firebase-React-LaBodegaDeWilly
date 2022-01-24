@@ -1,43 +1,64 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { useContexto } from "../components/miContexto";
-import { db } from "../components/firebase";
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 
 const Cart = () => {
-  const { carrito, borrarDelCarrito, limpiarCarrito, preciototal } =
-    useContexto();
+  const {
+    carrito,
+    borrarDelCarrito,
+    limpiarCarrito,
+    preciototal,
+    currentUser,
+    logout,
+  } = useContexto();
 
-  const finalizarCompra = () => {
-    const ventasCollection = collection(db, "ventas");
-    addDoc(ventasCollection, {
-      buyer: {
-        name: "Nestor Gomez",
-        phone: 34823185620,
-        mail: "nestor@mail.com",
-      },
-      items: carrito.map((prod) => {
-        return {
-          name: prod.name,
-          precio: prod.precio,
-          cantidad: prod.cantidad,
-        };
-      }),
-      date: serverTimestamp(),
-      total: preciototal,
-    })
-      .then((res) => {
-        alert(`tu compra tiene el numero de seguimiento ${res.id}`);
-        limpiarCarrito();
-      })
-      .catch((err) => console.log(err));
+  // const finalizarCompra = () => {
+  //     const ventasCollection = collection(db, "ventas");
+  //     addDoc(ventasCollection, {
+  //       buyer: {
+  //         name: "Nestor Gomez",
+  //         phone: 34823185620,
+  //         mail: "nestor@mail.com",
+  //       },
+  //       items: carrito.map((prod) => {
+  //         return {
+  //           name: prod.name,
+  //           precio: prod.precio,
+  //           cantidad: prod.cantidad,
+  //         };
+  //       }),
+  //       date: serverTimestamp(),
+  //       total: preciototal,
+  //     })
+  //       .then((res) => {
+  //         alert(`tu compra tiene el numero de seguimiento ${res.id}`);
+  //         limpiarCarrito();
+  //       })
+  //       .catch((err) => console.log(err));
+  //   };
+
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      navigate("/espumantes");
+    } catch (error) {
+      console.log(error.message);
+    }
   };
-
   if (carrito.length > 0) {
     return (
       <Container className="bg-white">
-        <h3 className="text-success text-center">Su carro de compras</h3>
+        {error && <p className="error">{error}</p>}
+        <h3 className="text-success text-center">{currentUser.email}</h3>
+        <h3 className="text-success text-center">este es tu carro</h3>
+        <Button className="btn-success" onClick={handleLogout}>
+          Cerrar sesion
+        </Button>
         {carrito.map((producto, indice) => {
           return (
             <Row key={indice}>
@@ -76,7 +97,7 @@ const Cart = () => {
             <Button className="ms-2" onClick={limpiarCarrito}>
               Borrar el carro
             </Button>
-            <Button className="ms-2" onClick={finalizarCompra}>
+            <Button className="ms-2" onClick="">
               Finalizar Compra
             </Button>
           </Col>
@@ -98,4 +119,5 @@ const Cart = () => {
     );
   }
 };
+
 export default Cart;

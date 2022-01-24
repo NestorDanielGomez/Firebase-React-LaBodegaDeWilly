@@ -35,6 +35,8 @@ const NavMenu = ({ links }) => {
               })}
             </Nav>
           </Navbar.Collapse>
+          <NavLink to="/SignUp">SignUp</NavLink>
+          <NavLink to="/Login">Login</NavLink>
           <NavLink to="/Cart" className="widgetnumber">
             <CartWidget />
             {totalproductos > 0 ? (
