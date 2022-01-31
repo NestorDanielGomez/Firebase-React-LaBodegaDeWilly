@@ -1,0 +1,39 @@
+.tarjetas {
+  background-color: #1d1712;
+  .card {
+    border-radius: 0;
+    border: 0;
+    transition: 0.2s ease-in-out;
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+  }
+  .card-img-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.4);
+    background-blend-mode: soft-light;
+    flex-direction: column;
+    justify-content: center;
+    align-content: flex-start;
+    h5 {
+      font-size: 1.25rem;
+      span {
+        color: $colorsecundario;
+        border-bottom: solid 1px $colorsecundario;
+        font-weight: bold;
+      }
+    }
+    a {
+      span {
+        color: $colorblanco;
+        font-size: 1rem;
+      }
+    }
+  }
+}

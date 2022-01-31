@@ -14,16 +14,30 @@ import {
 const micontexto = createContext();
 
 export const { Provider } = micontexto;
-
 export const useContexto = () => useContext(micontexto);
 
 const CustomProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState({});
+  const [usuarioLogueado, setusuarioLogueado] = useState({});
+  const [preciototal, setPrecioTotal] = useState(0);
+  const [totalproductos, setTotalProductos] = useState(0);
+  const [carrito, setCarrito] = useState([]);
+  const [productoAgregado, setProductoAgregado] = useState(false);
 
   useEffect(() => {
-    const unsub = onAuthStateChanged(auth, (currentuser) => {
-      console.log("Auth", currentuser);
-      setCurrentUser(currentuser);
+    if (localStorage.getItem("Cart") !== null) {
+      setCarrito(JSON.parse(localStorage.getItem("Cart")));
+      setTotalProductos(JSON.parse(localStorage.getItem("PrecioTotal")));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("Cart", JSON.stringify(carrito));
+    localStorage.setItem("PrecioTotal", JSON.stringify(preciototal));
+  }, [carrito, preciototal]);
+
+  useEffect(() => {
+    const unsub = onAuthStateChanged(auth, (usuarioLogueado) => {
+      setusuarioLogueado(usuarioLogueado);
     });
 
     return () => {
@@ -50,11 +64,8 @@ const CustomProvider = ({ children }) => {
     return signInWithPopup(auth, facebookAuthProvider);
   }
 
-  const [preciototal, setPrecioTotal] = useState(0);
-  const [totalproductos, setTotalProductos] = useState(0);
-  const [carrito, setCarrito] = useState([]);
-
   const agregarAlCarrito = (cantidad, producto) => {
+    setProductoAgregado(true);
     const idAChequear = producto.id;
     if (isInCarrito(idAChequear)) {
       const copidadcarrito = [...carrito];
@@ -64,7 +75,6 @@ const CustomProvider = ({ children }) => {
     } else {
       const productoConSuCantidad = { ...producto };
       productoConSuCantidad.cantidad = cantidad;
-      //ahora le paso el abjeto a set carrito
       setCarrito([...carrito, productoConSuCantidad]);
     }
     setTotalProductos(totalproductos + cantidad);
@@ -76,8 +86,6 @@ const CustomProvider = ({ children }) => {
     cantidadproducto,
     preciototalproducto
   ) => {
-    // console.log(`id del producto a borrar ${idproductoaborrar}`);
-    // console.log(idproductoaborrar, cantidadproducto, preciototalproducto);
     const copycarritofiltrado = carrito.filter(
       (prod) => prod.id !== idproductoaborrar
     );
@@ -100,10 +108,11 @@ const CustomProvider = ({ children }) => {
     preciototal,
     totalproductos,
     carrito,
+    productoAgregado,
     agregarAlCarrito,
     borrarDelCarrito,
     limpiarCarrito,
-    currentUser,
+    usuarioLogueado,
     login,
     logout,
     signup,

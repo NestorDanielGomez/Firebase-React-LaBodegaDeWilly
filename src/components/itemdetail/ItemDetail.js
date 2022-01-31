@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Alert } from "react-bootstrap";
 import { useContexto } from "../miContexto";
 import ItemCount from "../itemcount/ItemCount";
 import "../itemdetail/ItemDetail.css";
@@ -8,28 +8,31 @@ const ItemDetail = ({ producto }) => {
   const { agregarAlCarrito } = useContexto();
 
   const onAdd = (cantidadProducto) => {
-    alert(`Producto agregado al carro`);
-    // console.log(cantidadProducto);
-    //onAdd trae la cantidad seleccionada en el itemcount
-    // le mando a agregarAlCarrito (el producto seleccionado y la cantidad del mismo)
+    <Alert>Producto agregado al carro</Alert>;
+
     agregarAlCarrito(cantidadProducto, producto);
   };
   return (
     <>
-      <Container className="bg-light mt-4 ">
+      <Container className="bg-white mt-4 itemDetail">
         <Row>
-          <Col>
+          <Col className="text-end">
             <img src={producto.img} alt={producto.marca} />
           </Col>
-          <Col>
-            <h2>{producto.name}</h2>
-            <h2>{producto.marca}</h2>
-            <h2>{producto.tipo}</h2>
-            <h2>{producto.varietal}</h2>
-            <h2>{producto.stock}</h2>
-            <div>
-              {<ItemCount stock={producto.stock} initial={1} onAdd={onAdd} />}
-            </div>
+          <Col className="mt-4">
+            <p className="ps-2">
+              Bebida: <strong> {producto.name}</strong>
+              <br />
+              Marca: <strong> {producto.marca}</strong>
+              <br />
+              Tipo: <strong> {producto.tipo}</strong>
+              <br />
+              Varietal: <strong> {producto.varietal}</strong>
+              <br />
+              Envase: <strong> {producto.envase}</strong>
+            </p>
+
+            <ItemCount stock={producto.stock} initial={1} onAdd={onAdd} />
           </Col>
         </Row>
       </Container>

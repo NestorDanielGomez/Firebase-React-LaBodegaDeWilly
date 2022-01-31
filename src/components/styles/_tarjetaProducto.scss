@@ -1,0 +1,33 @@
+.card {
+  width: 250px;
+  height: 450px;
+  background-color: $colorblanco;
+
+  .card-img-top {
+    margin: 0 auto;
+    width: 50%;
+    // height: 300px;
+  }
+
+  .card-img-overlay {
+    bottom: 90%;
+  }
+
+  .list-group-item {
+    position: relative;
+    display: block;
+    padding: 0.5rem 0;
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: $colorprimario;
+    text-decoration: none;
+    background-color: #fff;
+    border: 0;
+  }
+  .btn {
+    font-size: 14px;
+    padding: 0.25rem 0.5rem;
+    margin: 0 5px;
+    border-radius: 0;
+  }
+}

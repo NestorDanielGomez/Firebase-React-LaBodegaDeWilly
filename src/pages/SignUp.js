@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useContexto } from "../components/miContexto";
-
+import { Container, Form, Button, Row, Col } from "react-bootstrap";
 const SignUp = () => {
   const { signup } = useContexto();
   let navigate = useNavigate();
@@ -25,39 +25,50 @@ const SignUp = () => {
   };
 
   return (
-    <div className="card fuente">
-      <div className="card-header">
-        {error && <p className="error">{error}</p>}
-        <h1>Sign Up</h1>
-      </div>
-      <div className="card-body">
-        <form onSubmit={handleSubmit}>
-          <input
-            type="email"
-            ref={emailRef}
-            placeholder="Email"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            ref={passwordRef}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          {/* <input
-            type="password"
-            placeholder="Confirm Password"
-            ref={passwordRed}
-            onChange={handleConfirmPassword}
-          /> */}
-          <input type="submit" value="Sign Up" />
-        </form>
-        {/* {loading && <img src={Spinner} alt="Loading" />} */}
-        <p>
-          Do you already have an account? <Link to="/login">Login</Link>{" "}
-        </p>
-      </div>
-    </div>
+    <Container className="text-white fuente ">
+      <Row className="justify-content-center">
+        <Col xs={12} sm={4}>
+          {error && <p className="error">{error}</p>}
+
+          <h2 className="text-white">
+            Crear Cuenta
+            {/* {noTieneRegistro ? "Registrate" : "Iniciar Sesión"} */}
+          </h2>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Ingrese su Correo</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="Ingrese Correo..."
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Label>Ingrese su contraseña</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Contraseña..."
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <Form.Text className="text-muted">
+                Nunca comparta su contraseña con nadie.
+              </Form.Text>
+            </Form.Group>
+            <Button
+              variant="outline-secondary"
+              type="submit"
+              className="w-100 mb-3"
+            >
+              CREAR {/* {noTieneRegistro ? "Registrate" : "Iniciar Sesión"} */}
+            </Button>{" "}
+          </Form>
+          {/* {loading && <img src={Spinner} alt="Loading" />} */}
+          <p>
+            Ya tenes una cuenta? <Link to="/login">Login</Link>{" "}
+          </p>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 export default SignUp;

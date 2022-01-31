@@ -1,6 +1,12 @@
 @import "colores";
 @import "header";
 @import "navbar";
+@import "tarjetaProducto";
+@import "cart";
+@import "itemDetail";
+@import "formularios";
+@import "videohome";
+@import "tarjetas";
 
 * {
   margin: 0;
@@ -34,6 +40,63 @@ html {
   .h6 {
     margin-bottom: 0;
   }
+}
+
+.row > * {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.btn {
+  border-radius: 0;
+}
+.btn-outline-primary {
+  color: $colorprimario;
+  border-color: $colorprimario;
+}
+.btn-outline-primary:hover {
+  color: #fff;
+  background-color: $colorprimario;
+  border-color: $colorprimario;
+}
+.btn-outline-succes {
+  color: $colorwhatsapp;
+  border-color: $colorwhatsapp;
+}
+.btn-outline-succes:hover {
+  color: #fff;
+  background-color: $colorwhatsapp;
+  border-color: $colorwhatsapp;
+}
+
+.btn-outline-secondary {
+  color: $colorsecundario;
+  border-color: $colorsecundario;
+}
+.btn-outline-secondary:hover {
+  color: $colorprimario;
+  background-color: $colorsecundario;
+  border-color: $colorsecundario;
+}
+
+.btn-outline-danger {
+  color: $colorgoogle;
+  border-color: $colorgoogle;
+}
+.btn-outline-danger:hover {
+  color: $colorblanco;
+  background-color: $colorgoogle;
+  border-color: $colorgoogle;
+}
+
+.btn-outline-info {
+  color: $colorfacebook;
+  border-color: $colorfacebook;
+}
+.btn-outline-info:hover {
+  color: $colorblanco;
+  background-color: $colorfacebook;
+  border-color: $colorfacebook;
 }
 
 .error {

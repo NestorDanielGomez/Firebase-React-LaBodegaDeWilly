@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Container, Row, Button, Card } from "react-bootstrap";
-import "../itemcount/ItemCount.css";
+import { Container, Row, Button, Col, Card } from "react-bootstrap";
+import { FaPlus, FaMinus, FaRedo } from "react-icons/fa";
 
 const ItemCount = ({ stock, initial, onAdd }) => {
   const [contador, setContador] = useState(initial);
@@ -25,37 +25,33 @@ const ItemCount = ({ stock, initial, onAdd }) => {
   };
   if (visible) {
     return (
-      <>
-        <Container className="bg-white">
-          <Row>
-            <Card style={{ width: "18rem" }}>
-              <Card.Body>
-                <Card.Text>
-                  Stock: {stock}
-                  Botellas a comprar:{contador}
-                </Card.Text>
-
-                <Button onClick={sumar} className="m-1 btn btn-primary ">
-                  Sumar
-                </Button>
-                <Button onClick={restar} className="m-1 btn btn-danger ">
-                  Restar
-                </Button>
-                <Button onClick={resetear} className="m-1 btn btn-success ">
-                  Resetear
-                </Button>
-                <Link
-                  to="/Productos"
-                  onClick={ejecutoOnAdd}
-                  className="m-1 btn btn-info "
-                >
-                  Agregar al Carro
-                </Link>
-              </Card.Body>
-            </Card>
-          </Row>
-        </Container>
-      </>
+      <Container className="bg-white">
+        <Row>
+          <Col>
+            <h5>
+              Botellas a comprar: <strong>{contador}</strong>
+            </h5>
+            <Button onClick={sumar} className="m-1 btn btn-primary ">
+              <FaPlus />
+            </Button>
+            <Button onClick={restar} className="m-1 btn btn-danger ">
+              <FaMinus />
+            </Button>
+            <Button onClick={resetear} className="m-1 btn btn-success ">
+              <FaRedo />
+            </Button>
+            <Link to="/Productos">
+              <Button
+                onClick={ejecutoOnAdd}
+                className="m-1 w-100"
+                variant="outline-primary"
+              >
+                AGREGAR AL CARRO
+              </Button>
+            </Link>
+          </Col>
+        </Row>
+      </Container>
     );
   } else {
     return (

@@ -3,9 +3,9 @@ import { Navigate } from "react-router-dom";
 import { useContexto } from "../components/miContexto";
 
 const PrivateRoute = ({ children }) => {
-  const { currentUser } = useContexto();
-  console.log("Check user in Private: ", currentUser);
-  if (!currentUser) {
+  const { usuarioLogueado } = useContexto();
+  console.log("Check user in Private: ", usuarioLogueado);
+  if (!usuarioLogueado) {
     return <Navigate to="/login" />;
   }
   return children;

@@ -31,11 +31,7 @@ function App() {
             element={<ItemListContainer saludo="Bienvenido Nestor" />}
           />
           <Route path="/producto/:id" element={<ItemDetailContainer />} />
-          {/* {usuarioRegistrado ? (
-            <Route path="/cart" element={<Cart />} />
-          ) : (
-            <Route path="/login" element={<ItemCount />} />
-          )} */}
+
           <Route
             path="/cart"
             element={

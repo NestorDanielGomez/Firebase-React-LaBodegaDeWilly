@@ -11,16 +11,18 @@ const NavMenu = ({ links }) => {
     <>
       <Navbar expand="lg" className="navbarStyles">
         <Container>
-          <Navbar.Brand href="#home">
-            <img
-              alt=""
-              src="/assets/images/logowilly.svg"
-              width="40"
-              height="34"
-              className="d-inline-block align-top"
-            />
-            <span>La bodega de Willy</span>
-          </Navbar.Brand>
+          <NavLink to="/">
+            <Navbar.Brand>
+              <img
+                alt=""
+                src="/assets/images/logowilly.svg"
+                width="40"
+                height="34"
+                className="d-inline-block align-top"
+              />
+              <span>La bodega de Willy</span>
+            </Navbar.Brand>
+          </NavLink>
         </Container>
         <Container>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
