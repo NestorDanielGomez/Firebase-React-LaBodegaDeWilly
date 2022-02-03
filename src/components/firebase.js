@@ -3,12 +3,12 @@ import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBsZauFPSj7UABz-cYqqUg2OcwY_UFqyzI",
-  authDomain: "la-bodega-de-willy.firebaseapp.com",
-  projectId: "la-bodega-de-willy",
-  storageBucket: "la-bodega-de-willy.appspot.com",
-  messagingSenderId: "226803498391",
-  appId: "1:226803498391:web:e6a6ad8f6c87114ab6d8d2",
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId,
 };
 
 const firebaseApp = initializeApp(firebaseConfig);

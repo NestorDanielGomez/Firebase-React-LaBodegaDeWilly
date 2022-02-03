@@ -28,10 +28,10 @@ const SignUp = () => {
   };
 
   return (
-    <Container className="text-white fuente ">
+    <Container className="text-white fuente pt-4 pb-4 ">
       <Row className="justify-content-center ps-2 pe-2">
         <Col xs={12} sm={4}>
-          <h2 className="text-white">Crear Cuenta</h2>
+          <h2 className="text-white text-center">CREAR CUENTA</h2>
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Ingrese su Correo</Form.Label>
@@ -59,12 +59,15 @@ const SignUp = () => {
               type="submit"
               className="w-100 mb-3"
             >
-              Crear
+              CREAR CUENTA
             </Button>{" "}
           </Form>
 
           <p>
-            Ya tenes una cuenta? <Link to="/login">Login</Link>{" "}
+            Ya tenes una cuenta?{" "}
+            <Link to="/login" className="link-sesion ms-2">
+              Login
+            </Link>{" "}
           </p>
         </Col>
       </Row>

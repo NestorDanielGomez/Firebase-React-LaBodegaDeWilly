@@ -19,7 +19,27 @@ El sitio consiste en:
 
 - La pagina principal (se accede tambien haciendo click en el logo del sitio) consiste en un video de presentación y una descripción del tipo de bebidas que se ofrecen, tambien resalta que los envios dentro de las ciudades indicadas son gratuitos.
 - Luego tenes las opciondes de acceder a los productos, ya sean todos (PRODUCTOS) o a cada sección en particular (VINOS / DESTILADOS / ESPUMANTES)
-- En el header mientas no estamos registrados nos aparece el texto "¿todavia no te Logueaste? Crea tu cuenta o accede desde tu Gmail o Facebook"()
+
+## `Inicio de sesión`
+
+Para loguearse y poder acceder al carro de compras disponemos de 2 opciones.
+1- En el header mientas no estamos registrados nos aparece el texto **"¿todavia no te Logueaste? Crea tu cuenta o accede desde tu Gmail o Facebook"**.Este es un link a la pagina del login.
+2- Accedemos tambien al login desde su icono correpondiente al lado del icono del carrito.
+
+En el caso de querer crear una nueva cuenta y no usar google y facebook. En el formulario de login contamos con elk link \*"No tenes cuenta? Crear Cuenta"\* donde nos redirecciona a la pagina para crear un nuevo usuario.
+
+## `Como comprar un producto`
+
+Para buscar un producto podemos optar por las pestañas de **PRODUCTOS** donde muestra todos los productos disponibles, o las pestañas **VINOS-ESPUMANTES-DESTILADOS** que filtran los productos por categoria.
+
+Una vez que elegimos un producto contamos con 2 opciones:
+1- El Boton **Agregar:** nos lleva a la pagina del producto donde podemos ver una descripcion mas completa del producto y elegir la cantidad a comprar. Cuando agregamos el producto al carro, lanza un mensaje de advirtiendo que dicho producto fue agregado con exito al carro.
+2- El Boton **whatsapp:** nos comunica con el dueño del local con un mensaje personalizado con los datos del producto a consultar
+
+## `Como comprar un producto`
+
+- El Carro de compras es una ruta protegida solo se puede acceder estando registrado (ya sea con la cuenta que creamos, con la cuenta de google o con la de facebook.).
+  Una vez registrados podemos ver los productos que tenemos en el carro con su correpondiente cantidad, como asi tambien el valor de la compra.
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.

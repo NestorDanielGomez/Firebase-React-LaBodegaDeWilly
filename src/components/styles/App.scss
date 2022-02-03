@@ -135,3 +135,17 @@ html {
   color: $colorblanco;
   text-decoration: none;
 }
+
+.link-sesion {
+  color: $colorsecundario;
+  font-weight: 400;
+  text-decoration: none;
+  padding-bottom: 5px;
+  transition: all 0.2s ease-in-out;
+}
+.link-sesion:hover {
+  color: $colorblanco;
+  font-weight: 900;
+  text-decoration: none;
+  border-bottom: 1px solid $colorsecundario;
+}

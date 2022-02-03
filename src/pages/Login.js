@@ -67,10 +67,11 @@ const Login = () => {
     <Container className="text-white fuente pt-4 pb-4">
       <Row className="justify-content-center ps-2 pe-2">
         <Col xs={12} sm={4}>
-          <h5 className="text-white text-center pb-3">
+          <h2 className="text-white text-center pb-3">INICIAR SESION</h2>
+          <h6 className="text-white text-center pt-2 pb-2 border border-1">
             PARA VER EL CARRO <b /> DEBES INICIAR SESION
-          </h5>
-          <Form onSubmit={handleSubmit}>
+          </h6>
+          <Form onSubmit={handleSubmit} className="pt-3">
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Ingrese su Correo</Form.Label>
               <Form.Control
@@ -118,7 +119,10 @@ const Login = () => {
           </Form>
 
           <p>
-            No tenes cuenta? <Link to="/signup">Crear Cuenta</Link>{" "}
+            No tenes cuenta?{" "}
+            <Link to="/signup" className="link-sesion ms-2">
+              Crear Cuenta
+            </Link>
           </p>
         </Col>
       </Row>
