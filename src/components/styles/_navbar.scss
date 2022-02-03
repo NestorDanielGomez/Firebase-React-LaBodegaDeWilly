@@ -1,27 +1,48 @@
 .navbarStyles {
-  height: 50px;
   background-color: $colorprimario;
+
+  .navbar-toggler {
+    color: #b09e80 !important;
+    font-size: 1.75rem;
+  }
+  .navbar-collapse {
+    justify-content: center;
+  }
+
+  .subrayado {
+    border-bottom: 1px solid $colorblanco;
+    font-size: 1.25rem;
+
+    @media screen and (max-width: 400px) {
+      font-size: 15px;
+    }
+  }
+
   a {
     text-decoration: none;
     color: $colorsecundario;
+    font-size: 18px;
   }
   span {
     color: $colorblanco;
-    border-bottom: 1px solid $colorblanco;
   }
 
   .widgetnumber {
     display: flex;
+    font-size: 16px;
     justify-content: center;
     align-items: center;
-    span {
+
+    .numero {
+      border: thin solid $colorgoogle;
       text-decoration: none;
       background-color: $colorblanco;
-      border-radius: 5px;
-      color: $colorprimario;
+      border-radius: 0;
+      color: $colorgoogle;
       font-weight: bold;
-      padding: 1px 3px;
+      padding: 2px 2px;
       margin-left: 5px;
+      margin-bottom: 0;
       border-bottom: 0;
     }
   }

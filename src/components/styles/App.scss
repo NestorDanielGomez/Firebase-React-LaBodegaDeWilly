@@ -7,6 +7,7 @@
 @import "formularios";
 @import "videohome";
 @import "tarjetas";
+@import "footer";
 
 * {
   margin: 0;
@@ -16,7 +17,6 @@
 
 body {
   font-family: "Cinzel", serif;
-  /* font-family: 'Roboto', sans-serif; */
   font-size: 16px;
   background-color: $colornegro;
 }
@@ -50,6 +50,20 @@ html {
 .btn {
   border-radius: 0;
 }
+
+.btn-primary {
+  color: $colorsecundario;
+  font-size: 20px;
+  font-weight: 700;
+  background-color: $colorprimario;
+  border-color: $colorprimario;
+}
+.btn-primary:hover {
+  color: #fff;
+  background-color: $colorprimario;
+  border-color: $colorprimario;
+}
+
 .btn-outline-primary {
   color: $colorprimario;
   border-color: $colorprimario;
@@ -77,6 +91,7 @@ html {
   color: $colorprimario;
   background-color: $colorsecundario;
   border-color: $colorsecundario;
+  font-weight: 700;
 }
 
 .btn-outline-danger {
@@ -109,4 +124,14 @@ html {
 
 .fuente {
   font-family: font-family, "Roboto", sans-serif;
+}
+
+.links {
+  color: $colorsecundario;
+  text-decoration: none;
+  border-bottom: 1px solid $colorsecundario;
+}
+.links:hover {
+  color: $colorblanco;
+  text-decoration: none;
 }

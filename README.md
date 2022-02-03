@@ -1,12 +1,25 @@
-# Getting Started with Create React App
+# Tienda de bebidas - "La Bodela de Willy" - Desarrollada por Nestor Gomez
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Proyecto final del curso de React, camada 19770
 
-## Available Scripts
+## Herramientas utilizadas para el desarrollo:
+
+- `React Js` ✔️
+- `React Router DOM` ✔️
+- `React-Bootstrap` ✔️
+- `CSS 3` ✔️
+- `Sweet Alert 2` ✔️
+- `Firebase` ✔️
 
 In the project directory, you can run:
 
-### `npm start`
+## `Descripción del proyecto`
+
+El sitio consiste en:
+
+- La pagina principal (se accede tambien haciendo click en el logo del sitio) consiste en un video de presentación y una descripción del tipo de bebidas que se ofrecen, tambien resalta que los envios dentro de las ciudades indicadas son gratuitos.
+- Luego tenes las opciondes de acceder a los productos, ya sean todos (PRODUCTOS) o a cada sección en particular (VINOS / DESTILADOS / ESPUMANTES)
+- En el header mientas no estamos registrados nos aparece el texto "¿todavia no te Logueaste? Crea tu cuenta o accede desde tu Gmail o Facebook"()
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.

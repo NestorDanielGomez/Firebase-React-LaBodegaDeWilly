@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Alert } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import ItemDetail from "../itemdetail/ItemDetail";
+import Swal from "sweetalert2";
 import { db } from "../firebase";
 import { collection, doc, getDoc } from "firebase/firestore";
 
@@ -17,15 +18,24 @@ const ItemDetailContainer = () => {
         const productoConId = { ...producto.data(), id };
         setProducto(productoConId);
       })
-      .catch((error) => {});
+      .catch((error) => {
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: `<strong>Parece que hubo un error...</strong>`,
+          html: `<b>${error}</b>`,
+          showConfirmButton: true,
+          timer: 5000,
+        });
+      });
   }, [id]);
 
   return (
     <>
       {producto.length === 0 ? (
-        <h1 className="text-white">Cargando Su Producto</h1>
+        <Alert variant="primary text-center fs-4">Cargando Producto</Alert>
       ) : (
-        <Container>
+        <Container fluid>
           <Row>
             <Col>
               <ItemDetail producto={producto} />

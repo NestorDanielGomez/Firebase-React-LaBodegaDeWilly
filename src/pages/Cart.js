@@ -6,6 +6,7 @@ import { useContexto } from "../components/miContexto";
 import { db } from "../components/firebase";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { FaRegTrashAlt } from "react-icons/fa";
+import Swal from "sweetalert2";
 const Cart = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -16,15 +17,21 @@ const Cart = () => {
     preciototal,
     usuarioLogueado,
     logout,
-    productoAgregado,
   } = useContexto();
 
   const handleLogout = async () => {
     try {
       await logout();
-      navigate("/espumantes");
+      navigate("/productos");
     } catch (error) {
-      console.log(error.message);
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: `<strong>Parece que hubo un error...</strong>`,
+        html: `<b>${setError("Ocurrio un error")}</b>`,
+        showConfirmButton: true,
+        timer: 5000,
+      });
     }
   };
 
@@ -47,23 +54,34 @@ const Cart = () => {
       total: preciototal,
     })
       .then((res) => {
-        alert(`tu compra tiene el numero de seguimiento ${res.id}`);
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: `<strong>Gracias por tu compra</strong>`,
+          html: `Tiene el numero de seguimiento <b>${res.id}</b>`,
+          showConfirmButton: true,
+          timer: 5000,
+        });
+
         limpiarCarrito();
       })
-      .catch((err) => console.log(err));
+      .catch((error) => {
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: `<strong>Parece que hubo un error...</strong>`,
+          html: `<b>${error}</b>`,
+          showConfirmButton: true,
+          timer: 5000,
+        });
+      });
   };
 
   if (carrito.length > 0) {
     return (
-      <Container className="bg-white carrito">
-        {error && <p className="error">{error}</p>}
-        <h3 className="text-success text-center">{usuarioLogueado.email}</h3>
-        <h3 className="text-success text-center">este es tu carro</h3>
-        <Button className="btn-success" onClick={handleLogout}>
-          Cerrar sesion
-        </Button>
-        <Row>
-          <Col xs={12} sm={8} className="pe-3 ps-3">
+      <Container className="bg-white carrito pt-5 pb-5" fluid>
+        <Row className="justify-content-center me-5">
+          <Col xs={12} sm={5} className="pe-3 ps-3">
             {carrito.map((producto, index) => {
               return (
                 <Col key={index}>
@@ -103,10 +121,23 @@ const Cart = () => {
           </Col>
           <Col xs={12} sm={4} className="border-start border-success">
             <Container className="text-center">
-              <Row>
+              {error && <p className="error">{error}</p>}
+              <h5 className="text-dark text-center d-inline-block pe-2">
+                Hola: {usuarioLogueado.email}
+              </h5>
+              <Button
+                className="d-inline-block"
+                variant="outline-primary"
+                onClick={handleLogout}
+              >
+                Cerrar sesion
+              </Button>
+
+              <Row className="pt-3">
                 <Col>
                   <p className="text-dark datosproducto">
-                    Precio Total de la Compra: <strong>${preciototal} </strong>
+                    Tu compra tiene un valor de:{" "}
+                    <strong>${preciototal} </strong>
                   </p>
                   <Link to="/Productos">
                     <Button className="m-1 w-100" variant="outline-primary">
@@ -138,14 +169,32 @@ const Cart = () => {
     );
   } else {
     return (
-      <Container>
-        <Row>
-          <Col>
-            <h3 className="text-white text-center">Su carro esta vacio</h3>
+      <Container className="pt-5 pb-5 ">
+        <Row className="justify-content-center text-center">
+          <Col xs={12} sm={9}>
+            {error && <p className="error">{error}</p>}
+            <h4 className="text-white text-center text-white pb-3 usuario">
+              Hola: <strong>{usuarioLogueado.email}</strong>
+              <Button
+                className="btn ms-3"
+                onClick={handleLogout}
+                variant="outline-secondary"
+              >
+                Cerrar sesion
+              </Button>
+            </h4>
+            <h3 className="text-white text-center pb-3">Tu carro esta vacio</h3>
+
+            <Link to="/Productos">
+              <Button
+                variant="outline-secondary"
+                type="submit"
+                className="w-100 mb-3 align-content-center"
+              >
+                IR A COMPRAR
+              </Button>
+            </Link>
           </Col>
-          <Link to="/Productos" className="m-1 btn btn-info text-center">
-            Ir a comprar
-          </Link>
         </Row>
       </Container>
     );

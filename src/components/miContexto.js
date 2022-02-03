@@ -1,6 +1,7 @@
 import React from "react";
 import { createContext, useContext, useState, useEffect } from "react";
 import { auth } from "./firebase";
+import Swal from "sweetalert2";
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
@@ -21,25 +22,29 @@ const CustomProvider = ({ children }) => {
   const [preciototal, setPrecioTotal] = useState(0);
   const [totalproductos, setTotalProductos] = useState(0);
   const [carrito, setCarrito] = useState([]);
-  const [productoAgregado, setProductoAgregado] = useState(false);
 
   useEffect(() => {
-    if (localStorage.getItem("Cart") !== null) {
+    if (
+      (localStorage.getItem("Cart") !== null) &
+      (localStorage.getItem("PrecioTotal") !== 0) &
+      (localStorage.getItem("TotalProductos") !== 0)
+    ) {
       setCarrito(JSON.parse(localStorage.getItem("Cart")));
-      setTotalProductos(JSON.parse(localStorage.getItem("PrecioTotal")));
+      setPrecioTotal(JSON.parse(localStorage.getItem("PrecioTotal")));
+      setTotalProductos(JSON.parse(localStorage.getItem("TotalProductos")));
     }
   }, []);
 
   useEffect(() => {
     localStorage.setItem("Cart", JSON.stringify(carrito));
     localStorage.setItem("PrecioTotal", JSON.stringify(preciototal));
-  }, [carrito, preciototal]);
+    localStorage.setItem("TotalProductos", JSON.stringify(totalproductos));
+  }, [carrito, preciototal, totalproductos]);
 
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, (usuarioLogueado) => {
       setusuarioLogueado(usuarioLogueado);
     });
-
     return () => {
       unsub();
     };
@@ -65,7 +70,6 @@ const CustomProvider = ({ children }) => {
   }
 
   const agregarAlCarrito = (cantidad, producto) => {
-    setProductoAgregado(true);
     const idAChequear = producto.id;
     if (isInCarrito(idAChequear)) {
       const copidadcarrito = [...carrito];
@@ -77,6 +81,16 @@ const CustomProvider = ({ children }) => {
       productoConSuCantidad.cantidad = cantidad;
       setCarrito([...carrito, productoConSuCantidad]);
     }
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: `<strong>Producto Agregado</strong>`,
+      html:
+        `<strong>${producto.tipo} - ${producto.marca} - ${producto.varietal}</strong>` +
+        " Agregado con exito",
+      showConfirmButton: true,
+      timer: 5000,
+    });
     setTotalProductos(totalproductos + cantidad);
     setPrecioTotal(preciototal + producto.precio * cantidad);
   };
@@ -108,7 +122,6 @@ const CustomProvider = ({ children }) => {
     preciototal,
     totalproductos,
     carrito,
-    productoAgregado,
     agregarAlCarrito,
     borrarDelCarrito,
     limpiarCarrito,

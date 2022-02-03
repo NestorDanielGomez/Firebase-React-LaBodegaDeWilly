@@ -1,20 +1,17 @@
 import React from "react";
-import { Container, Row, Col, Alert } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { useContexto } from "../miContexto";
 import ItemCount from "../itemcount/ItemCount";
-import "../itemdetail/ItemDetail.css";
 
 const ItemDetail = ({ producto }) => {
   const { agregarAlCarrito } = useContexto();
 
   const onAdd = (cantidadProducto) => {
-    <Alert>Producto agregado al carro</Alert>;
-
     agregarAlCarrito(cantidadProducto, producto);
   };
   return (
     <>
-      <Container className="bg-white mt-4 itemDetail">
+      <Container className="bg-white mt-4 itemDetail mb-4">
         <Row>
           <Col className="text-end">
             <img src={producto.img} alt={producto.marca} />

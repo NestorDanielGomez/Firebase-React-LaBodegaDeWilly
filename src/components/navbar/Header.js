@@ -1,48 +1,30 @@
 import React from "react";
-import { FaFacebook, FaWhatsapp, FaInstagram } from "react-icons/fa";
+import { Container, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { useContexto } from "../miContexto";
 
 const Header = () => {
+  const { usuarioLogueado } = useContexto();
+
   return (
-    <>
-      <header className="header" id="header">
-        <div className="">
-          <span className="header__textos ">Envio Gratis - Rqta/Avda</span>
-        </div>
-        <div className="">
-          <span className="header__textos ">
-            Prohibida su venta a menores de 18 años
-          </span>
-        </div>
-
-        <div className="iconos">
-          <a
-            href="https://instagram.com/labodegadewilly"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="lead"
-          >
-            <FaInstagram />
-          </a>
-          <a
-            href="https://facebook.com/labodegadewilly"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="lead"
-          >
-            <FaFacebook />
-          </a>
-
-          <a
-            href="https://wa.me/3482318980/?text=La%20Bodega%20de%20Willy%20-%20Disponible"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="lead"
-          >
-            <FaWhatsapp />
-          </a>
-        </div>
-      </header>
-    </>
+    <Container className="pt-2 pb-2" fluid>
+      <Row>
+        <Col className="text-center">
+          {usuarioLogueado === null ? (
+            <span className="text-white fs-6 ">
+              <Link to="/login" className="link-header">
+                "¿todavia no te Logueaste? Crea tu cuenta o accede desde tu
+                Gmail o Facebook"
+              </Link>
+            </span>
+          ) : (
+            <span className="text-white fs-6 ">
+              Hola: {usuarioLogueado.email}
+            </span>
+          )}
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

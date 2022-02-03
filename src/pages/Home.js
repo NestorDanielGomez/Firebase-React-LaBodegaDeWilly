@@ -1,6 +1,6 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-
+import { Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
 const Home = () => {
   <title>La Bodega de Willy - Venta de Vinos - Destilados - Espumantes</title>;
 
@@ -34,7 +34,9 @@ const Home = () => {
                 />
                 <div className="card-img-overlay ">
                   <h5 className="ms-2 ">
-                    <span>Vinos</span>
+                    <Link to="/categoria/vinos" className="links">
+                      Espumantes
+                    </Link>
                   </h5>
                 </div>
               </div>
@@ -48,7 +50,9 @@ const Home = () => {
                 />
                 <div className="card-img-overlay ">
                   <h5 className="ms-2 ">
-                    <span>Espumantes</span>
+                    <Link to="/categoria/espumantes" className="links">
+                      Espumantes
+                    </Link>
                   </h5>
                 </div>
               </div>
@@ -62,7 +66,9 @@ const Home = () => {
                 />
                 <div className="card-img-overlay ">
                   <h5 className="ms-2 ">
-                    <span>Destilados</span>
+                    <Link to="/categoria/espumantes" className="links">
+                      Destilados
+                    </Link>
                   </h5>
                 </div>
               </div>

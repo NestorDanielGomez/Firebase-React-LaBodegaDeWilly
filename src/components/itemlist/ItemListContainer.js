@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Container } from "react-bootstrap";
-
+import { Container, Alert } from "react-bootstrap";
 import ItemList from "../itemlist/ItemList";
-
+import Swal from "sweetalert2";
 import { db } from "../firebase";
 import { getDocs, query, collection, where } from "firebase/firestore";
 
@@ -23,7 +22,14 @@ const ItemListContainer = ({ saludo }) => {
           setList(docs.map((doc) => ({ id: doc.id, ...doc.data() })));
         })
         .catch((error) => {
-          console.log(error);
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            title: `<strong>Parece que hubo un error...</strong>`,
+            html: `<b>${error}</b>`,
+            showConfirmButton: true,
+            timer: 5000,
+          });
         });
     } else {
       getDocs(productosCollection)
@@ -31,7 +37,14 @@ const ItemListContainer = ({ saludo }) => {
           setList(docs.map((doc) => ({ id: doc.id, ...doc.data() })));
         })
         .catch((error) => {
-          console.log(error);
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            title: `<strong>Parece que hubo un error...</strong>`,
+            html: `<b>${error}</b>`,
+            showConfirmButton: true,
+            timer: 5000,
+          });
         });
     }
   }, [nombre]);
@@ -40,12 +53,12 @@ const ItemListContainer = ({ saludo }) => {
     <>
       {list.length === 0 ? (
         <>
-          <h4 className="text-white text-center">Cargando Productos</h4>s
+          <Alert variant="primary text-center fs-4">
+            Cargando los Productos
+          </Alert>
         </>
       ) : (
-        <Container className="text-center   pb-3" fluid>
-          <h3 className="text-black-50">Tenemos:{list.length} productos</h3>
-
+        <Container className="text-center pb-3 pt-3" fluid>
           <ItemList list={list} />
         </Container>
       )}

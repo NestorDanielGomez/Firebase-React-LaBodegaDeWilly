@@ -1,36 +1,8 @@
-.header {
-  background-color: $colorfondo;
+.link-header {
+  font-family: "Roboto", sans-serif !important;
+  text-decoration: none;
   color: $colorsecundario;
-  font-size: 12px;
-  padding: 10px 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  a {
-    color: $colorsecundario;
-    transition: all 0.3s ease-out;
-  }
-  a:hover {
-    color: $colorblanco;
-    transform: scale(1.25, 1.25);
-  }
-  .iconos {
-    display: flex;
-    justify-content: space-evenly;
-  }
-  a {
-    padding: 0 5px;
-  }
 }
-
-@media screen and (min-width: 768px) {
-}
-
-@media screen and (min-width: 1200px) {
-  .header {
-    .header__textos {
-      font-size: 1rem;
-    }
-  }
+.link-header:hover {
+  color: $colorblanco;
 }

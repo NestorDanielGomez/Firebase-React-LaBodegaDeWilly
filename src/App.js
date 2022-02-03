@@ -13,6 +13,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./components/styles/App.scss";
 import { links } from "./data/LinksNav";
 import PrivateRoute from "./components/PrivateRoute";
+import Footer from "./components/footer/footer";
 
 function App() {
   return (
@@ -43,14 +44,9 @@ function App() {
           <Route path="/SignUp" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </CustomProvider>
   );
 }
 export default App;
-
-// return (
-//   <>
-//     {usuarioGlobal ? <Home correoUsuario={usuarioGlobal.email} /> : <Logueo />}
-//   </>
-// );

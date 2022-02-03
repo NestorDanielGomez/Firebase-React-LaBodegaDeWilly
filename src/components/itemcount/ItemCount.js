@@ -31,13 +31,17 @@ const ItemCount = ({ stock, initial, onAdd }) => {
             <h5>
               Botellas a comprar: <strong>{contador}</strong>
             </h5>
-            <Button onClick={sumar} className="m-1 btn btn-primary ">
+            <Button onClick={sumar} className="m-1" variant="outline-primary">
               <FaPlus />
             </Button>
-            <Button onClick={restar} className="m-1 btn btn-danger ">
+            <Button onClick={restar} className="m-1 " variant="outline-primary">
               <FaMinus />
             </Button>
-            <Button onClick={resetear} className="m-1 btn btn-success ">
+            <Button
+              onClick={resetear}
+              className="m-1 "
+              variant="outline-primary"
+            >
               <FaRedo />
             </Button>
             <Link to="/Productos">

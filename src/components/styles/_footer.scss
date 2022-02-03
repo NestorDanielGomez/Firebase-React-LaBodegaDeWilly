@@ -1,0 +1,59 @@
+.footer {
+  padding-top: 1rem;
+  background-color: $colorprimario;
+  padding-bottom: 2rem;
+  color: $colorblanco;
+  .titulosubrayado {
+    border-bottom: 1px solid $colorsecundario;
+  }
+  a {
+    text-decoration: none;
+    color: white;
+    transition: 0.3s ease-in-out;
+  }
+
+  img {
+    height: 50px;
+    width: auto;
+  }
+  h3 {
+    span {
+      font-size: 1.5rem;
+      color: $colorblanco;
+      border-bottom: 1px solid $colorsecundario;
+    }
+  }
+
+  .textos__footer {
+    font-family: roboto;
+    font-size: 15px;
+    font-weight: lighter;
+    padding-top: 0.75rem;
+  }
+  i {
+    padding: 0.1rem;
+    font-size: 1.25rem;
+  }
+}
+
+.fade {
+  .navbar__titulo {
+    font-size: 1.1rem;
+    border-bottom: 1.5px solid $colorsecundario;
+    margin-left: 0.5rem;
+  }
+}
+
+.modal-body {
+  font-family: "roboto", serif;
+}
+
+.footer {
+  a:hover {
+    color: $colorsecundario;
+  }
+  i:hover {
+    color: $colorsecundario;
+    transform: scale(2);
+  }
+}
