@@ -47,7 +47,7 @@ const Footer = () => {
             <FaFacebook />
           </a>
           <a
-            href="https://wa.me/3482234536/?text=La%20Bodega%20de%20Willy%20-%20Disponible"
+            href="https://wa.me/5493482318980/?text=La%20Bodega%20de%20Willy%20-%20Disponible"
             target="_blank"
             rel="noopener noreferrer"
             className="lead ms-1 me-1"
@@ -56,13 +56,13 @@ const Footer = () => {
           </a>
         </Col>
       </Row>
-      <Row className="text-center pt-4 pb-4 ps-2 pe-2">
+      <Row className="text-center text-secondary pt-4 pb-4 ps-2 pe-2">
         <Col>
           Beber con moderación - Prohibida su venta a menores de 18 años
         </Col>
       </Row>
-      <Row className="text-center text-secondary pt-4  pb-1 ps-2 pe-2">
-        <Col>Realizado por Néstor Gómez - React Developer by CODERHOUSE</Col>
+      <Row className="text-center text-white pt-2  pb-1 ps-2 pe-2">
+        <Col>Desarrollo: Néstor Gómez - React Developer by CODERHOUSE</Col>
       </Row>
     </Container>
   );
