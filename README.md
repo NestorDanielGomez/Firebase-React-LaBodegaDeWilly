@@ -19,6 +19,7 @@ El sitio consiste en:
 
 - La pagina principal (se accede tambien haciendo click en el logo del sitio) consiste en un video de presentación y una descripción del tipo de bebidas que se ofrecen, tambien resalta que los envios dentro de las ciudades indicadas son gratuitos.
 - Luego tenes las opciondes de acceder a los productos, ya sean todos (PRODUCTOS) o a cada sección en particular (VINOS / DESTILADOS / ESPUMANTES)
+  <img src="./public/gifs/Navegacion.gif" />
 
 ## `Inicio de sesión`
 
