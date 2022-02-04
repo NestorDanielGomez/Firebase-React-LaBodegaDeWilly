@@ -1,4 +1,4 @@
-# Tienda de bebidas - "La Bodela de Willy" - Desarrollada por Nestor Gomez
+# Tienda de bebidas - "La Bodela de Willy"
 
 Proyecto final del curso de React, camada 19770
 
@@ -57,3 +57,13 @@ Una vez que elegimos un producto contamos con 2 opciones:
 > Proteger los datos de firebase en el archivo firebase.js con las variables locales (.env.local) lo intente y en modo local funciona bien y no tira ningún error, pero cuando hago el deploy con netlyfy el sitio se carga con una pantalla completa de color negro y tira un error de autorizacion de firebase por consola.
 
 > CONSULTA PERSONAL:¿que puedo hacer para mejorar el rendimiento y el funcionamiento del sitio?¿deberia encarar un proyecto similar con Redux? En marzo arranco con el ultimo curso de backend y mi objetivo es que este sitio quede totalmente operativo? Por que camino tendria que seguir dentro del desarrollo con react?
+
+## AUTOR
+
+Néstor Daniel Gomez
+
+<img src="./public/gifs/github.jpg" /> [Github](https://github.com/NestorDanielGomez)
+
+<img src="./public/gifs/linkedin.jpg" /> [Linkedin](linkedin.com/in/nestor-daniel-gómez-acuña-1000bb203)
+
+<img src="./public/gifs/gmail.jpg" /> nestordanielgomez@gmail.com
