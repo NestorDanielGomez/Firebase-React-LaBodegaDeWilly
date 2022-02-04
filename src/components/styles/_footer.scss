@@ -1,6 +1,28 @@
 .footer {
   padding-top: 1rem;
-  background-color: $colorprimario;
+  background: rgb(25, 37, 55);
+  background: -moz-linear-gradient(
+    90deg,
+    rgba(25, 37, 55, 1) 0%,
+    rgba(46, 68, 101, 1) 17%,
+    rgba(25, 37, 55, 1) 53%,
+    rgba(46, 68, 101, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    90deg,
+    rgba(25, 37, 55, 1) 0%,
+    rgba(46, 68, 101, 1) 17%,
+    rgba(25, 37, 55, 1) 53%,
+    rgba(46, 68, 101, 1) 100%
+  );
+  background: linear-gradient(
+    90deg,
+    rgba(25, 37, 55, 1) 0%,
+    rgba(46, 68, 101, 1) 17%,
+    rgba(25, 37, 55, 1) 53%,
+    rgba(46, 68, 101, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#192537",endColorstr="#2e4465",GradientType=1);
   padding-bottom: 2rem;
   color: $colorblanco;
   .titulosubrayado {
