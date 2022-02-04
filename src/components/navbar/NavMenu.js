@@ -2,7 +2,6 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { useContexto } from "../miContexto";
 import { Container, Navbar, Nav } from "react-bootstrap";
-
 import { FaUserAlt, FaCartPlus, FaBars } from "react-icons/fa";
 
 const NavMenu = ({ links }) => {

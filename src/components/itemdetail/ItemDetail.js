@@ -11,12 +11,12 @@ const ItemDetail = ({ producto }) => {
   };
   return (
     <>
-      <Container className="bg-white mt-4 itemDetail mb-4">
+      <Container className="bg-white itemDetail  pt-4 pb-4">
         <Row>
-          <Col className="text-end">
+          <Col xs={4} sm={6} className="text-end">
             <img src={producto.img} alt={producto.marca} />
           </Col>
-          <Col className="mt-4">
+          <Col xs={8} sm={6} className="mt-4">
             <p className="ps-2">
               Bebida: <strong> {producto.name}</strong>
               <br />

@@ -130,7 +130,7 @@ const Cart = () => {
                 variant="outline-primary"
                 onClick={handleLogout}
               >
-                Cerrar sesion
+                CERRAR SESION
               </Button>
 
               <Row className="pt-3">
@@ -174,13 +174,13 @@ const Cart = () => {
           <Col xs={12} sm={9}>
             {error && <p className="error">{error}</p>}
             <h4 className="text-white text-center text-white pb-3 usuario">
-              Hola: <strong>{usuarioLogueado.email}</strong>
+              Hola <strong>{usuarioLogueado.email}</strong>
               <Button
                 className="btn ms-3"
                 onClick={handleLogout}
                 variant="outline-secondary"
               >
-                Cerrar sesion
+                CERRAR SESION
               </Button>
             </h4>
             <h3 className="text-white text-center pb-3">Tu carro esta vacio</h3>

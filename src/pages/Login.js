@@ -5,10 +5,10 @@ import { useContexto } from "../components/miContexto";
 import Swal from "sweetalert2";
 
 const Login = () => {
-  const { login, googleSignIn, facebookSignIn } = useContexto();
+  const { login, googleSignIn, facebookSignIn, usuarioLogueado, logout } =
+    useContexto();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState(false);
-
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -63,14 +63,50 @@ const Login = () => {
     }
   };
 
+  const handleLogout = async () => {
+    try {
+      await logout();
+      navigate("/productos");
+    } catch (error) {
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: `<strong>Parece que hubo un error...</strong>`,
+        html: `<b>${error.message}</b>`,
+        showConfirmButton: true,
+        timer: 5000,
+      });
+    }
+  };
+
   return (
     <Container className="text-white fuente pt-4 pb-4">
       <Row className="justify-content-center ps-2 pe-2">
         <Col xs={12} sm={4}>
-          <h2 className="text-white text-center pb-3">INICIAR SESION</h2>
-          <h6 className="text-white text-center pt-2 pb-2 border border-1">
-            PARA VER EL CARRO <b /> DEBES INICIAR SESION
-          </h6>
+          {usuarioLogueado === null ? (
+            <>
+              <h2 className="text-white text-center pb-3">INICIAR SESION</h2>
+              <h6 className="text-white text-center pt-2 pb-2 border border-1">
+                PARA VER EL CARRO <b /> DEBES INICIAR SESION
+              </h6>
+            </>
+          ) : (
+            <>
+              <h2 className="text-white text-center pb-3">
+                {usuarioLogueado.email}
+              </h2>
+              <h6 className="text-white text-center ms-4 pt-2 pb-2  d-inline-block">
+                TU SESIÓN YA ESTA ABIERTA.
+                <Button
+                  className="d-inline-block ms-4"
+                  variant="outline-secondary"
+                  onClick={handleLogout}
+                >
+                  CERRAR SESION
+                </Button>
+              </h6>
+            </>
+          )}
           <Form onSubmit={handleSubmit} className="pt-3">
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Ingrese su Correo</Form.Label>

@@ -5,4 +5,11 @@
     font-size: 20px;
     font-weight: 300;
   }
+
+  img {
+    width: 200px;
+    @media screen and (max-width: 400px) {
+      width: 100px;
+    }
+  }
 }
