@@ -11,6 +11,7 @@ import SignUp from "../src/pages/SignUp";
 import CustomProvider from "./components/miContexto";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./components/styles/App.scss";
+
 import { links } from "./data/LinksNav";
 import PrivateRoute from "./components/PrivateRoute";
 import Footer from "./components/footer/footer";

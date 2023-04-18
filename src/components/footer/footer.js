@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import { FaFacebook, FaWhatsapp, FaInstagram } from "react-icons/fa";
+
 const Footer = () => {
   return (
     <Container fluid className="text-white text-center footer pt-5 pb-5">
