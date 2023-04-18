@@ -71,6 +71,4 @@ Una vez que elegimos un producto contamos con 2 opciones:
 
 > Definitivamente se pueden optimizar mucho algunos codigos, para mi, el ejemplo mas notorio son el caso de los alertas de error, podria haber generado un componente que recibe como parametro el error correspondiente y llamarlo en los lugares correspondiente, evitando repetir codigo.
 
-> Proteger los datos de firebase en el archivo firebase.js con las variables locales (.env.local) lo intente y en modo local funciona bien y no tira ningún error, pero cuando hago el deploy con netlyfy el sitio se carga con una pantalla completa de color negro y tira un error de autorizacion de firebase por consola.
-
-> CONSULTA PERSONAL:¿que puedo hacer para mejorar el rendimiento y el funcionamiento del sitio?¿deberia encarar un proyecto similar con Redux? En marzo arranco con el ultimo curso de backend y mi objetivo es que este sitio quede totalmente operativo. Por que camino tendria que seguir dentro del desarrollo con react?
+> Proteger los datos de firebase en el archivo firebase.js con las variables locales (.env.local)
